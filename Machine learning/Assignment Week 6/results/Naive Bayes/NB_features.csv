@@ -1,0 +1,39 @@
+,feature,importance
+0,tumor variant average clipped length,0.105
+1,tumor variant average mapping quality,0.029
+2,disease colorectal,0.014
+3,tumor reference average basequality,0.014
+4,normal reference average basequality,0.014
+5,normal reference average clipped length,0.013
+6,tumor reference average clipped length,0.012
+7,normal VAF,0.009
+11,normal variant count,0.007
+10,normal variant num plus strand,0.007
+9,normal variant num q2 containing reads,0.007
+8,normal reference average mapping quality,0.007
+12,normal variant num minus strand,0.006
+13,normal reference average pos as fraction,0.006
+14,tumor variant average sum mismatch qualities,0.006
+15,tumor reference average sum mismatch qualities,0.005
+16,normal reference average sum mismatch qualities,0.005
+17,tumor reference average mapping quality,0.005
+18,disease MPNST,0.004
+22,disease melanoma,0.003
+23,normal other bases count,0.003
+19,tumor reference average num mismaches as fraction,0.003
+21,normal reference average num mismaches as fraction,0.003
+20,tumor other bases count,0.003
+24,normal variant average sum mismatch qualities,0.002
+25,reviewer 3,0.002
+26,normal variant average num mismaches as fraction,0.002
+27,tumor variant average basequality,0.001
+28,disease GST,0.001
+29,reviewer 4,0.001
+30,tumor VAF,0.001
+31,tumor variant average num mismaches as fraction,0.001
+32,tumor reference num minus strand,0.001
+33,tumor reference num plus strand,0.001
+34,tumor reference count,0.001
+35,tumor reference num q2 containing reads,0.001
+36,disease SCLC,0.001
+37,tumor depth,0.000

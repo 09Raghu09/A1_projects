@@ -1,0 +1,107 @@
+
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+import warnings
+warnings.filterwarnings("ignore")
+df = pd.read_csv("/content/processedgooddata")
+
+df.info()
+df.head()
+
+corr = df.corr()['target'].abs().sort_values()
+corr
+
+def onehot(ser, num_classes=None):
+    """
+    One-hot encode the series.
+    Example: 
+    >>> onehot([1, 0, 2], 3)
+    array([[0., 1., 0.],
+       [1., 0., 0.],
+       [0., 0., 1.]])
+    """
+    if num_classes == None:
+        num_classes = len(np.unique(ser))
+    return np.identity(num_classes)[ser]
+  
+def preprocessing(df):
+  new_col_names = []
+  need_encode_col = ["restecg", "thal", "slope", "cp"]
+  no_encode_col = [col for col in df.columns if col not in need_encode_col]
+  new_df = df[no_encode_col]
+  for col in need_encode_col:
+    num_classes = len(df[col].unique())
+    new_col_names = [f"{col}_{i}" for i in range(num_classes)]
+    encoded = pd.Data_frame(onehot(df[col], num_classes), columns=new_col_names, dtype=int)
+    new_df = pd.concat([new_df, encoded], axis=1)
+  new_df.head()
+
+
+from sklearn.utils import shuffle
+from sklearn.model_selection import train_test_split
+
+
+# RANDOM FOREST
+from sklearn.ensemble import RandomForestClassifier
+new_df = df
+data_cols = [col for col in new_df.columns if col != "target"]
+new_df_shfl = shuffle(new_df, random_state=443)
+X = new_df_shfl[data_cols].values
+Y = new_df_shfl["target"].values
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
+model = RandomForestClassifier()  
+model.fit(X_train, Y_train)
+result = model.score(X_test, Y_test)
+print(("Random Forest Accuracy: %.2f%%") % (result*100.00))
+
+
+#DECISION TREE
+from sklearn.tree import DecisionTreeClassifier
+new_df_shfl = shuffle(new_df, random_state=443)
+X = new_df_shfl[data_cols].values
+y = new_df_shfl["target"].values
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
+model = DecisionTreeClassifier() 
+model.fit(X_train, Y_train)
+result = model.score(X_test, Y_test)
+print(("Decision Tree Accuracy: %.2f%%") % (result*100.00))
+
+
+#GRADIENT BOOST
+from sklearn.ensemble import GradientBoostingClassifier
+new_df_shfl = shuffle(new_df, random_state=443)
+X = new_df_shfl[data_cols].values
+y = new_df_shfl["target"].values
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
+model = GradientBoostingClassifier() 
+model.fit(X_train, Y_train)
+result = model.score(X_test, Y_test)
+print(("Gradient Boost Accuracy: %.2f%%") % (result*100.00))
+
+
+#ADA BOOST
+from sklearn.ensemble import  AdaBoostClassifier
+new_df_shfl = shuffle(new_df, random_state=443)
+X = new_df_shfl[data_cols].values
+Y = new_df_shfl["target"].values
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
+model =  AdaBoostClassifier() 
+model.fit(X_train, Y_train)
+result = model.score(X_test, Y_test)
+print(("Adaboost Accuracy: %.2f%%") % (result*100.00))
+
+
+#KNeighborsClassifier
+from sklearn.neighbors import  KNeighborsClassifier
+new_df_shfl = shuffle(new_df, random_state=443)
+X = new_df_shfl[data_cols].values
+Y = new_df_shfl["target"].values
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
+model =  KNeighborsClassifier() 
+model.fit(X_train, Y_train)
+result = model.score(X_test, Y_test)
+print(("KNeighborsClassifier Accuracy: %.2f%%") % (result*100.00))

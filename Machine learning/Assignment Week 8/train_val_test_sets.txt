@@ -1,0 +1,3 @@
+https://raw.githubusercontent.com/Christensen-Lab-Dartmouth/PyMethylProcess/master/example_scripts/machine_learning_example/train_val_test_sets/test_methyl_array.pkl
+https://raw.githubusercontent.com/Christensen-Lab-Dartmouth/PyMethylProcess/master/example_scripts/machine_learning_example/train_val_test_sets/train_methyl_array.pkl
+https://raw.githubusercontent.com/Christensen-Lab-Dartmouth/PyMethylProcess/master/example_scripts/machine_learning_example/train_val_test_sets/val_methyl_array.pkl
