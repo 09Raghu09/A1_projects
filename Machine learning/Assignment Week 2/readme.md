@@ -1,3 +1,5 @@
+# Identification of (statistically significant) chromatin contacts
+from Hi-C data with a software called FitHiC2
 
 ### *installs fithic in python virtualenv and runs steps 1,2,3,4,6,7 of protocol*
 
