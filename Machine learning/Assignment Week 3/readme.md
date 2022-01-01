@@ -1,4 +1,6 @@
-# **Assignment 3, Team N**
+# Detection of somatic mutations from genomic sequences with a
+# software called NeuSomatic – which is, at its core, a convolutional neural network
+
 ### *builds Neusomatic docker image onto a container and runs analysis on real data*
 
 How to run NeuSomatic on Docker:
