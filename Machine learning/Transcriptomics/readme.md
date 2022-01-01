@@ -1,4 +1,4 @@
-**Assignment 7, Team N**
+# Identifying and analyzing different cancer subtypes using RNA-seq data of blood platelets
 
 ## 1. Preprocess data
 In order to first preprocess the data (found in */data/input/*), follow these steps:
