@@ -1,7 +1,7 @@
 # Forecast the outbreak
 
 Machine learning models are calibrated using publicly available data sources like the WHO health
-report. Time series forecasting can be framed as a supervised learning problem. Other than model-
+report. Time series forecasting can be framed as a supervised learning problem.
 
 The forecasting is performed using pythons numpy and sklearn libraries. At first, the data is
 downloaded. Since no data points are missing no preprocessing is performed with the exception of
