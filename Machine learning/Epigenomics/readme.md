@@ -1,4 +1,4 @@
-**Assignment 6, Team N**
+# PyMethylProcess - convenient high-throughput preprocessing workflow for DNA methylation data
 
 ## 1. Installation
 The following instructions assume a Linux environment. 

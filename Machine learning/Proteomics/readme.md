@@ -1,4 +1,4 @@
-**Assignment 10, Team N**
+# Proteomics computation analysis
 
 Installs PyOpenMS and downloads dataset. Performs pyOpenMs feature extraction. Attempts nPYc quality control, but fails with input.
 

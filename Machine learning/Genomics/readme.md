@@ -1,4 +1,4 @@
-**Assignment 6, Team N**
+# Somatic variant refinement of sequencing data
 
 ## 1. Installation
 The following instructions assume a Linux environment. 

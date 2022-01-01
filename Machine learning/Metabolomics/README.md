@@ -1,4 +1,4 @@
-**Assignment 5, Team N**
+# Identification of biomarkers from metabolomics data
 
 *Downloads Jupyter Notebooks from Github repo and runs them in a virtual environment*
 
