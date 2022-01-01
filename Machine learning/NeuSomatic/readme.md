@@ -1,5 +1,4 @@
-# Detection of somatic mutations from genomic sequences with a
-# software called NeuSomatic – which is, at its core, a convolutional neural network
+# Detection of somatic mutations from genomic sequences with a software called NeuSomatic – which is, at its core, a convolutional neural network
 
 ### *builds Neusomatic docker image onto a container and runs analysis on real data*
 
