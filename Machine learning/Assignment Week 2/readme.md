@@ -1,4 +1,4 @@
-# **Assignment 2, Team N**
+
 ### *installs fithic in python virtualenv and runs steps 1,2,3,4,6,7 of protocol*
 
 ## How to run (Linux)
