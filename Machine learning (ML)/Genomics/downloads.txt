@@ -1,0 +1,12 @@
+https://github.com/griffithlab/DeepSVR/blob/master/data/aml31/train.pkl
+https://github.com/griffithlab/DeepSVR/blob/master/data/log_reg/threeclass_relu_probs.npy
+https://github.com/griffithlab/DeepSVR/blob/master/data/training_data.pkl
+https://github.com/griffithlab/DeepSVR/raw/master/data/call.pkl
+https://raw.githubusercontent.com/griffithlab/DeepSVR/master/data/aml31/Supplemental_Dataset_3-PlatinumSnvList.tsv
+https://raw.githubusercontent.com/griffithlab/DeepSVR/master/data/training_data_preprocessed.pkl
+https://raw.githubusercontent.com/griffithlab/DeepSVR/master/notebooks/Logistic%20regression%20classifier.ipynb
+https://raw.githubusercontent.com/griffithlab/DeepSVR/master/notebooks/Manual%20Re-Reivew.ipynb
+https://raw.githubusercontent.com/griffithlab/DeepSVR/master/notebooks/Manual%20reviewer%20agreement%20analysis.ipynb
+https://raw.githubusercontent.com/griffithlab/DeepSVR/master/notebooks/Model%20evaluation%20figures.ipynb
+https://raw.githubusercontent.com/griffithlab/DeepSVR/master/notebooks/Random%20forest.ipynb
+https://github.com/griffithlab/DeepSVR/raw/master/notebooks/Deep%20learning%20model.ipynb

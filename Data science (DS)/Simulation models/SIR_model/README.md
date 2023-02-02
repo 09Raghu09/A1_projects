@@ -1,0 +1,3 @@
+# SIR Model simulation
+
+This project deals with the application of a SIR-model on current COVID-19 case data taken either from a city (e.g. Berlin) or national (e.g. Germany) scale. The model itself is extended beyond the simple case by integrating two new states (Exposed, Dead) to the model and by studying the impact of independent features (ICUbed-capacity, Age, Smoking, and Gender) on the epidemic. By fitting the model to actual case data, possible projections can be made. Furthermore, different scenarios such as lockdown, reducing social contacts, and wearing masks, are explored by simulating their effect on the fitted model. Each prevention method is simulated over different periods and in combination with and without wearing masks on top.

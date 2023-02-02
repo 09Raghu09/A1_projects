@@ -1,0 +1,17 @@
+0.8300813008130081
+Cross validation accuracy:
+	 0.8291226792864944
+
+Cross validation classification report
+
+              precision    recall  f1-score   support
+
+           0       0.73      0.68      0.70      7189
+           1       0.89      0.86      0.88      8015
+           2       0.84      0.89      0.87     12266
+
+   micro avg       0.83      0.83      0.83     27470
+   macro avg       0.82      0.81      0.82     27470
+weighted avg       0.83      0.83      0.83     27470
+ samples avg       0.83      0.83      0.83     27470
+

@@ -1,0 +1,44 @@
+,feature,importance
+0,tumor VAF,0.131
+1,disease breast,0.108
+2,tumor reference average single end mapping quality,0.093
+3,reviewer 2,0.081
+4,tumor variant average mapping quality,0.080
+5,tumor variant average single end mapping quality,0.071
+6,tumor variant average clipped length,0.059
+7,tumor variant average basequality,0.047
+8,reviewer 1,0.045
+9,tumor variant average sum mismatch qualities,0.034
+10,normal VAF,0.021
+11,disease AML,0.020
+12,tumor reference average clipped length,0.019
+13,disease colorectal,0.018
+14,normal variant average clipped length,0.015
+15,disease SCLC,0.013
+16,normal reference average mapping quality,0.010
+17,tumor variant average distance to effective 3 prime end,0.010
+18,tumor reference average mapping quality,0.009
+19,normal reference average basequality,0.009
+21,tumor reference average sum mismatch qualities,0.007
+20,normal reference average single end mapping quality,0.007
+23,disease glioblastoma,0.006
+22,tumor reference average distance to effective 3 prime end,0.006
+24,disease melanoma,0.005
+25,disease lymphoma,0.004
+26,tumor reference average num mismaches as fraction,0.004
+27,normal reference average sum mismatch qualities,0.003
+28,normal variant average mapping quality,0.003
+29,normal reference average num mismaches as fraction,0.003
+31,normal variant average basequality,0.002
+32,normal variant average sum mismatch qualities,0.002
+30,tumor reference average distance to q2 start in q2 reads,0.002
+33,reviewer 3,0.001
+34,normal variant num minus strand,0.001
+35,normal reference average clipped length,0.001
+36,normal variant average single end mapping quality,0.001
+37,disease MPNST,0.001
+38,disease GST,0.001
+39,reviewer 4,0.001
+40,normal variant count,0.001
+41,normal variant average distance to q2 start in q2 reads,0.000
+42,normal variant num plus strand,0.000

@@ -1,0 +1,141 @@
+from google.colab import drive
+drive.mount('/content/gdrive')
+
+
+
+ # All imports
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten
+from tensorflow.keras.layers import Conv2D, MaxPooling2D
+from tensorflow.keras.callbacks import TensorBoard
+from tensorflow.keras.utils import to_categorical
+import pickle # for serializing and de-serializing of a Python object structure
+import time
+import matplotlib.pyplot as pyplot
+import os
+import cv2
+
+path="/content/kagglecatsanddogs_3367a/PetImages"
+img_size=80
+training_dataset=[]
+categories=["Dog","Cat"]
+count=0
+for category in categories:
+    def preprocessing_data(folder_path):
+        image_path=os.path.join(folder_path,category)
+        print(image_path)
+        for Image in os.listdir(image_path):
+            if(Image is not None):
+                img= cv2.imread(os.path.join(image_path,Image))
+                if(img is not None):
+                    img_gray= cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) 
+                    img_gray_resize= cv2.resize(img_gray,(img_size,img_size))
+                    training_dataset.append([img_gray_resize,categories.index(category)])      
+
+    preprocessing_data(path)
+
+X=[]
+y=[]
+
+x_pickle = "/content/X.pickle"
+y_pickle = "/content/y.pickle"
+
+
+import random
+random.shuffle(training_dataset) 
+#training_dataset=np.random.shuffle(training_dataset), online search to shuffle the data, creating issue 
+for features, label in training_dataset:
+    X.append(features)
+    y.append(label)
+     
+X = np.array(X).reshape(-1, img_size, img_size, 1)  
+ 
+ # name for saving logs
+NAME = "3-conv-128-layer-dense-1-out-2-softmax-categorical-cross-2-CNN"
+
+#pickle files
+pickle_X=open("/content/X.pickle","wb")
+pickle.dump(X,pickle_X)
+pickle_X.close()
+ 
+pickle_y=open("/content/y.pickle","wb")
+pickle.dump(y,pickle_y)
+pickle_y.close() 
+
+pickle_in = open("/content/X.pickle","rb")
+X = pickle.load(pickle_in)
+ 
+pickle_in = open("/content/y.pickle","rb")
+y = pickle.load(pickle_in)
+y = to_categorical(y)
+
+X = X/255.0
+
+model = Sequential()
+
+#Adding filteration Layers
+#Convolution layer:takes the data from the window of (3,3) and then make a conclusion using filters
+#activation function:Relu is a rectified linear function
+#Max pool:taking the 2×2 window and finding the max value, and allow that value will pass to the next layer
+#Drop out.Dropout layer:it will drop certaiin percentage of conclusions at every step to avoid over fitting of data.
+
+model.add(Conv2D(128, (3, 3), input_shape=(80,80,1)))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.3))
+ 
+model.add(Conv2D(128, (3, 3)))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.3))
+ 
+model.add(Conv2D(128, (3, 3)))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.3))
+ 
+ # Flatten layer is use to flat the matrix,it convert 3D array layers to 1D array layers,because dense layer works on 1D layer.
+model.add(Flatten())  
+ 
+model.add(Dense(128))
+model.add(Activation('relu'))
+ 
+model.add(Dense(2))
+model.add(Activation('softmax'))
+ 
+tensorboard = TensorBoard(log_dir="/content/gdrive/My Drive/Colab Notebooks/{}".format(NAME))
+ 
+ #Computing cost
+model.compile(loss='categorical_crossentropy',
+              optimizer='adam',
+              metrics=['accuracy'],
+              )
+ 
+#Fitting the model
+model.fit(X, y,
+          batch_size=32,
+          epochs=10,
+          validation_split=0.3,
+          callbacks=[tensorboard])
+ 
+
+model.save(f"/content/gdrive/My Drive/Colab Notebooks/{NAME}.model")
+
+
+
+
+#Part3- Test the Model
+#Upload the Dog Image and Cat image in this location /content/gdrive/My Drive/Colab Notebooks/
+
+import cv2
+import numpy as np
+def prepare(filepath):
+    img_size = 80  
+    img = cv2.imread(filepath, cv2.IMREAD_GRAYSCALE)/255  
+    img_resize = cv2.resize(img, (img_size, img_size))  
+    array=np.array(img_resize)
+    return array.reshape(-1, img_size, img_size, 1)
+
+#Uploaded cat image
+prediction=model.predict(prepare("/content/cat.jpg"))
+print(prediction)
